@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:scmui="http://jp.co.scm-net/jsf/components">
+<h:head>
+  <f:facet name="first">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="UTF-8" />
+    <meta content="no-cache" http-equiv="Cache-Control"/> 
+    <meta content="no-cache" http-equiv="Pragma"/> 
+  </f:facet>
+  <title>Viewer</title>
+</h:head>
+<h:body>
+  <h:form id="form">
+    <p:inputTextarea value="#{sessionBean.msg}" rows="15" cols="100" disabled="true"/>
+    <p:commandButton value="clear" actionListener="#{sessionBean.clear}" update="form"/>
+  </h:form>
+</h:body>
+</html>

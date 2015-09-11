@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'war'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.primefaces:primefaces:5.2'
+  
+  providedCompile 'javax.el:el-api:2.2'
+  providedCompile 'javax:javaee-web-api:7.0'
+  providedCompile 'org.jboss.spec.javax.faces:jboss-jsf-api_2.2_spec:2.2.4'
+}
+
+
+sourceCompatibility = targetCompatibility = '1.8'
+def defaultEncoding = 'UTF-8'
+tasks.withType(AbstractCompile) each { it.options.encoding = defaultEncoding }
+
+
+// war を ローカルの WildFly にコピーする
+task deployLocalWildFly(type: Copy, dependsOn: 'war'){
+  from 'build/libs'
+  into "${System.getenv()['JBOSS_HOME']}/standalone/deployments"
+}

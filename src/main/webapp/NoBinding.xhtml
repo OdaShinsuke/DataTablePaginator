@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:scmui="http://jp.co.scm-net/jsf/components">
+<h:head>
+  <f:facet name="first">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="UTF-8" />
+  </f:facet>
+  <title>NoBinding</title>
+</h:head>
+<h:body>
+  <h:form id="form">
+    <h1>Primefaces DataTable paginator デモ</h1>
+    <h2>DataTable の binding を指定していない場合は問題無く動く</h2>
+    <p:dataTable paginator="true" rows="2" value="#{dataTableBean.details}" var="item">
+      <p:column headerText="name"><h:outputText value="#{item.name}"/></p:column>
+      <p:column headerText="link"><p:commandLink value="リンク" action="#{dataTableBean.jump}" ajax="false"/> </p:column>
+    </p:dataTable> 
+  </h:form>
+</h:body>
+</html>
